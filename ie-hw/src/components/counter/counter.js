@@ -1,4 +1,5 @@
-import React, {useState , useEffect} from 'react'
+import React, {useState , useEffect} from 'react';
+import style from './counter.module.css';
 
 export default function Counter() {
     const[counter, setCounter] = useState(0);
@@ -15,7 +16,9 @@ export default function Counter() {
             }
             else{
                 intervalId = setInterval(()=>{
-                    setCounter(counter=>counter-1);
+                    if(counter > 0){
+                        setCounter(counter=>counter-1);
+                    }
                 }, 1000)
             }
         }
@@ -27,27 +30,16 @@ export default function Counter() {
         setStart(false);
         setCounter(0);
     }
-
-    useEffect(()=>{
-        // let intervalId;
-        console.log(counter);
-        // if(isDownCount & !isStart){
-        // intervalId = setInterval(()=>{
-        //     setCounter(counter=>counter-1);
-        // }, 1000)  
-        // }
-        // return()=> clearInterval(intervalId);
-    }, [isDownCount])
     
     return (
-        <div className="container">
-            <div className="counter">
-                <span className="count">{counter}</span>
+        <div className={style.container}>
+            <div className={style.counter}>
+                <span>{counter}</span>
             </div>
-            <div className="buttons">
-                <button onClick={(reset)} className="reset">Reset</button>
-                <button onClick={()=>setStart(!isStart)} className="start">{isStart ? "Pause":"Start"}</button>
-                <button onClick={()=>setDownCount(!isDownCount)} className="downCount">{isDownCount ? "Down Counting":"Up Counting"}</button>
+            <div className={style.buttons}>
+                <button onClick={(reset)} className={style.reset}>Reset</button>
+                <button onClick={()=>setStart(!isStart)} className={style.start}>{isStart ? "Pause":"Start"}</button>
+                <button onClick={()=>setDownCount(!isDownCount)} className={style.downCount}>{isDownCount ? "Down Counting":"Up Counting"}</button>
             </div>
         </div>
     )
