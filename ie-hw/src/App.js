@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-    {/* <div><Counter></Counter></div> */}
+    <div><Counter></Counter></div>
     <div><UserList></UserList></div>
 
     {/* <Button text="Reset" onClick={makeZero}></Button>
