@@ -15,7 +15,7 @@ function UserList() {
     // render() { 
         return (
             <div>
-            {loding ? data.map((data) =>(<User key={data.id} name ={data.name} phone={data.phone} email={data.email} website={data.website}/>)) : 'ie-hw\public\loding.svg' }
+            {loding ? data.map((data) =>(<User key={data.id} name ={data.name} phone={data.phone} email={data.email} website={data.website}/>)) : <div> <h1>LOADING DATA</h1><img src="loding.svg" alt="Loading"/> </div> }
             </div>
         )
     // }
